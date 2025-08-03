@@ -12,7 +12,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Copy files via SCP
+    - name: Copy HTML via SCP
       uses: appleboy/scp-action@v1.0.0
       with:
         host: ${{ secrets.DO_HOST }}
@@ -20,3 +20,21 @@ jobs:
         key: ${{ secrets.DO_SSH_KEY }}
         source: "index.html"
         target: "/var/www/naweedmalal.site/public_html"
+
+    - name: Copy CSS via SCP
+      uses: appleboy/scp-action@v1.0.0
+      with:
+        host: ${{ secrets.DO_HOST }}
+        username: ${{ secrets.DO_USER }}
+        key: ${{ secrets.DO_SSH_KEY }}
+        source: "css/**"
+        target: "/var/www/naweedmalal.site/public_html/css"
+
+    - name: Copy JS via SCP
+      uses: appleboy/scp-action@v1.0.0
+      with:
+        host: ${{ secrets.DO_HOST }}
+        username: ${{ secrets.DO_USER }}
+        key: ${{ secrets.DO_SSH_KEY }}
+        source: "js/**"
+        target: "/var/www/naweedmalal.site/public_html/js"
