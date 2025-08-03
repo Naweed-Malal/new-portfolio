@@ -18,23 +18,6 @@ jobs:
         host: ${{ secrets.DO_HOST }}
         username: ${{ secrets.DO_USER }}
         key: ${{ secrets.DO_SSH_KEY }}
-        source: "index.html"
+        source: "index.html,css/**,js/**"
         target: "/var/www/naweedmalal.site/public_html"
-
-    - name: Copy CSS via SCP
-      uses: appleboy/scp-action@v1.0.0
-      with:
-        host: ${{ secrets.DO_HOST }}
-        username: ${{ secrets.DO_USER }}
-        key: ${{ secrets.DO_SSH_KEY }}
-        source: "css/**"
-        target: "/var/www/naweedmalal.site/public_html/css"
-
-    - name: Copy JS via SCP
-      uses: appleboy/scp-action@v1.0.0
-      with:
-        host: ${{ secrets.DO_HOST }}
-        username: ${{ secrets.DO_USER }}
-        key: ${{ secrets.DO_SSH_KEY }}
-        source: "js/**"
-        target: "/var/www/naweedmalal.site/public_html/js"
+        
